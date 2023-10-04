@@ -1,0 +1,7 @@
+local.js
+ - k6 run --out json=output/<nama file output> <test file>.js
+ - jq '. | select(.metric == "checks" and .data.tags.check == "status is 200" or .data.tags.check == "transaction time OK" or .data.tags.check == "Page is Contact us" or .data.tags.check == "Page is News" )' local.json > filter_checks.json
+ - jq '. | select(.metric == "checks" and .data.tags.check == "expected Auth to be one of [ 'apiKey', 'OAuth' ]" )' local.json > filter_checks2.json
+
+
+cloud.js
